@@ -37,3 +37,62 @@
 <h2 align="center">Решение</h2>
 
 ---
+
+### Задание 1. Elasticsearch
+
+*   Установлен Elasticsearch версии `8.19.16`.
+*   Изменён параметр `cluster_name` на `hwelk`.
+
+# Скриншот результата (видно нестандартное имя hwelk):
+
+![task1](screenshots/task1.png)
+
+---
+
+### Задание 2. Kibana
+
+- Установлена Kibana версии 8.19.15.
+- Настроено подключение к Elasticsearch через сервисный аккаунт.
+- Веб-интерфейс доступен по адресу: http://192.168.0.178:5601
+
+Скриншот интерфейса Kibana (Dev Tools) с выполненным запросом:
+
+![task2](screenshots/task2.png)
+
+---
+
+### Задание 3. Logstash
+
+- Установлены Nginx и Logstash версии 8.19.15.
+- Создан конфигурационный файл Logstash для парсинга access.log Nginx.
+- Логи Nginx успешно отправлены в Elasticsearch через Logstash.
+
+Скриншот интерфейса Kibana, на котором видны логи Nginx (индекс logstash-nginx-*):
+
+![task3](screenshots/task3.png)
+
+---
+
+### Задание 4. Filebeat. 
+
+- Установлен Filebeat версии 8.19.15.
+- Произведено переключение поставки логов Nginx с Logstash на прямую отправку в Elasticsearch через Filebeat.
+- Логи Nginx успешно отправлены в Elasticsearch напрямую.
+
+Скриншот интерфейса Kibana, на котором видны логи Nginx, отправленные через Filebeat (индекс filebeat-*):
+
+![task4](screenshots/task4.png)
+
+---
+
+<h2 align="center">Вывод</h2>
+
+В результате выполнения домашнего задания:
+- Был развёрнут и настроен кластер Elasticsearch с нестандартным именем.
+- Установлена и подключена к кластеру Kibana для визуализации и управления.
+- Настроен Logstash для парсинга access-логов Nginx и их отправки в Elasticsearch.
+- Настроен Filebeat для отправки логов Nginx напрямую в Elasticsearch, минуя Logstash.
+
+Все сервисы работают стабильно, логи успешно доставляются и отображаются в Kibana.
+
+---
